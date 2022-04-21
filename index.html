@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const collection = ['ivan', 'olga', 'petr', 'oleg', 'serj'];
+
+        const home = [
+            [
+                ['flat-1', 'flat-2', 'flat-3'],
+                ['flat-4', 'flat-5', 'flat-6']
+            ],
+            [
+                ['flat-7', 'flat-8', 'flat-9'],
+                ['flat-10', 'flat-11', 'flat-12']
+            ]
+        ];
+
+        for (let i = 0; i < home.length; i++) {
+             console.log(home[i]);
+
+            for (let j = 0; j < home[i].length; j++) {
+                for (let k = 0; k < home[i].length; k++) {
+                    console.log(home[i][j][k]);
+                }
+            }
+        }
+
+        function addArrayElement(index, element, arr) {
+            if (index >= arr.length) {
+                arr[index] = element;
+            } 
+            else if (index >= 0) {
+                for (let i = arr.length; i >= index; i--) {
+                arr[i] = index === i ? element : arr[i - 1];
+                }
+            }
+        }
+
+        console.log(addArrayElement(5, 'viktor', collection));
+
+        function indexOf(element, arr) {
+            for(let i = 0, len = arr.length; i < len; i++) {
+                if(arr[i] === element) {
+                return i;
+                }
+            }
+            return -1;
+        }
+
+        console.log(indexOf('petr', collection));
+
+        function lastIndexOf(element, arr) {
+            for(let i = arr.length - 1; i >= 0; i--) {
+                if(arr[i] === element) {
+                return i;
+                }
+            }
+            return -1;
+        }
+
+        console.log(lastIndexOf('serj', collection));
+
+        function includes(element, arr) {
+            for(let i = 0, len = arr.length; i < len; i++) {
+                if(arr[i] === element) {
+                return true;
+                }
+            }
+            return false;
+        }
+
+        console.log(includes('oleg', collection));
+    </script>
+</body>
+</html>
